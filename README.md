@@ -1,8 +1,8 @@
 # serverless-slack-idrather
-Example of Slack slash command integration with Severless Framework
+Example of Slack slash command integration with Severless Framework.
 
-If you named your slash command `/idratherthan` if a user name Bob typed `/idratherthan do yard work` and a message would be posted 
-back to the slack channel(or private message) that says "Bob would rather <RANDOM_MESSAGE> than do yard work".
+If you named your slash command `/idratherthan` and a user name Bob typed `/idratherthan do yard work` a message would be posted 
+back to the slack channel(or private message) that says "Bob would rather RANDOM_MESSAGE than do yard work".
 
 ## Setup
 1. Setup slash command and add token to config.js
