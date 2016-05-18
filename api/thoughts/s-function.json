@@ -1,0 +1,61 @@
+{
+  "name": "thoughts",
+  "runtime": "nodejs4.3",
+  "description": "Serverless Lambda function for project: serverless-slack-idrather",
+  "customName": false,
+  "customRole": false,
+  "handler": "handler.handler",
+  "timeout": 6,
+  "memorySize": 1024,
+  "authorizer": {},
+  "custom": {
+    "excludePatterns": []
+  },
+  "endpoints": [
+    {
+      "path": "thoughts",
+      "method": "POST",
+      "type": "AWS",
+      "authorizationType": "none",
+      "authorizerFunction": false,
+      "apiKeyRequired": false,
+      "requestParameters": {},
+      "requestTemplates": {
+        "application/x-www-form-urlencoded": "{\"body\" : $input.json(\"$\")}"
+      },
+      "responses": {
+        "400": {
+          "statusCode": "400"
+        },
+        "401": {
+          "statusCode": "401",
+          "selectionPattern": "^\\[UNAUTHORIZED\\].*"
+        },
+        "500": {
+          "statusCode": "500",
+          "selectionPattern": "^\\[INTERNAL_ERROR\\].*"
+        },
+        "default": {
+          "statusCode": "200",
+          "responseParameters": {},
+          "responseModels": {
+            "application/json;charset=UTF-8": "Empty"
+          },
+          "responseTemplates": {
+            "application/json;charset=UTF-8": ""
+          }
+        }
+      }
+    }
+  ],
+  "events": [],
+  "environment": {
+    "SERVERLESS_PROJECT": "${project}",
+    "SERVERLESS_STAGE": "${stage}",
+    "SERVERLESS_REGION": "${region}"
+  },
+  "vpc": {
+    "securityGroupIds": [],
+    "subnetIds": []
+  }
+}
